@@ -1,32 +1,49 @@
 # este archivo se encargará de matchear el calendario en UTC con la informacion de la vela (tambien en UTC)
+# se tiene que tener en la carpeta dukas-copy1m como sigue:
+
+# dukascopy-1m
+# |
+# |-- AUDUSD
+# |     |
+# |     |-- 2019.csv
+# |     |-- 2020.csv
+# |     |-- ...
+# |-- EURUSD
+# |     |
+# |     |-- 2019.csv
+# |     |-- 2020.csv
+# |     |-- ...
+# ...
+
 import csv
 
-def symbol_to_file(symbol):
+def symbol_to_folder(symbol):
     if symbol=='EUR':
-        return 'EURUSD.csv'
+        return 'EURUSD'
     if symbol=='USD':
-        return 'EURUSD.csv'
+        return 'EURUSD'
     if symbol=='AUD':
-        return 'AUDUSD.csv'
+        return 'AUDUSD'
     if symbol=='GBP':
-        return 'GBPUSD.csv'
+        return 'GBPUSD'
     if symbol=='NZD':
-        return 'NZDUSD.csv'
+        return 'NZDUSD'
     if symbol=='CAD':
-        return 'USDCAD.csv'
+        return 'USDCAD'
     if symbol=='CHF':
-        return 'USDCHF.csv'
+        return 'USDCHF'
     if symbol=='JPY':
-        return 'USDJPY.csv'
+        return 'USDJPY'
 
 
 print('Time', 'Currency', 'Impact', 'Event', 'Actual', 'Forecast','Previous', 'Gmt time','Open','High','Low','Close','Volume')
-with open('./calendar_pruebas.csv', "r") as csvfile:
+with open('./calendar_utc_formateado.csv', "r") as csvfile:
     datareader = csv.reader(csvfile)
     for row in datareader:
+        if len(row) > 1:
+            year = row[0][6:10]
 
-        if row[1] is not None:
-            file = './datos-crudos/dukascopy-1m/' + symbol_to_file(row[1])
+            file = './datos-crudos/dukascopy-1m/' + symbol_to_folder(row[1]) + '/' + year + '.csv'
 
             with open(file, "r") as csvfile2:
                 datareader2 = csv.reader(csvfile2)
