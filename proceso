@@ -1,7 +1,10 @@
-1. descargar las noticias: scrapper de python
-2. asociar cada noticia por su comportamiento en la divisa (si forecast > actual sube la moneda o baja)
-3. normalizar huso horario de noticias
-4. descargar velas de cada noticia
-5. hacer join de noticias con compartimiento y velas
-6. agregar columna de cuantas otras noticias suceden a la vez (una por cada severity)
-7. aplicar ML Support Vector Machines
+1. (downloader.py)      descargar las noticias: scrapper de python
+2. (manual)             asociar cada noticia por su comportamiento en la divisa (si forecast > actual sube la moneda o baja)
+3. (excel) normalizar   huso horario de noticias
+4. (manual, dukascopy)  descargar velas de cada noticia
+5. (matcher.py)         hacer join de noticias con compartimiento y velas
+6. (neighbours.py)      agregar columna de cuantas otras noticias suceden a la vez (una por cada severity)
+7. (manual)             borrar todas las que no tienen ni actual, ni previous ni forecast, y las que tienen rangos (tienen un pipe | en ese campo)
+7. (normalizer.py)      ver diferencia porcentual entre actual, forecast y previous (eliminar simbolos como K, M, B, T, %)
+8. (distance.py)        calcular la distancia maxima entre (open, max) y (open, low) para ver en que dirección se debería operar
+9. aplicar ML Support Vector Machines
