@@ -1,0 +1,7 @@
+1. descargar las noticias: scrapper de python
+2. asociar cada noticia por su comportamiento en la divisa (si forecast > actual sube la moneda o baja)
+3. normalizar huso horario de noticias
+4. descargar velas de cada noticia
+5. hacer join de noticias con compartimiento y velas
+6. agregar columna de cuantas otras noticias suceden a la vez (una por cada severity)
+7. aplicar ML Support Vector Machines
